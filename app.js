@@ -16,3 +16,25 @@ app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 
 
+//Create
+
+app.post('/insert', (request, response)=>{
+
+});
+
+//Read
+app.get('/getAll', (request, response)=>{
+response.json({
+    success: true 
+})
+});
+
+//Update 
+
+
+// Delete
+
+
+
+app.listen(process.env.PORT, () => console.log('app is running'));
+
