@@ -6,8 +6,14 @@ const app = express();
 const cors = require('cors');
 // Permite cargar las variables del entorno en un archivo .env
 const dotenv = require('dotenv');
+
 // Permite usar dotenv
 dotenv.config();
+
+//Llamado del dbService en app
+const dbService = require('./dbService');
+
+
 // permite usar cors
 app.use(cors());
 // Permite enviar los datos entre el backend y el frontend en formato json
