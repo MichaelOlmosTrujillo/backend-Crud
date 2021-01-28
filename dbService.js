@@ -45,9 +45,26 @@ class DbService {
           if (err) reject(new Error(err.message));
           resolve(results);
         });
-
       });
       return response;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async insertNewName(name) {
+    try {
+      const dateAdded = new Date();
+      const insertId = await new Promise((resolve, reject) => {
+        const query = "INSERT INTO names (Name, DateAdded) VALUES (?, ?);";
+
+        connection.query(query, [name, dateAdded], (err, result) => {
+          if (err) reject(new Error(err.message));
+          resolve(result);
+        });
+      });
+      // return response;
+      console.log(insertId);
     } catch (error) {
       console.log(error);
     }
