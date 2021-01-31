@@ -46,5 +46,8 @@ app.get("/getAll", (request, response) => {
 //Update
 
 // Delete
+app.delete('/delete/:id', (request, response)=>{
+  const {id} = request.params;
+})
 
 app.listen(process.env.PORT, () => console.log("app is running"));
