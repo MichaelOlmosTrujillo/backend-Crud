@@ -48,6 +48,11 @@ app.get("/getAll", (request, response) => {
 // Delete
 app.delete('/delete/:id', (request, response)=>{
   const {id} = request.params;
+  const db = dbService.getDbServiceInstance();
+  const result = db.deleteRowById(id);
+  result
+  .then(data => response.json({success:data}))
+  .catch(err => console.log(err));
 })
 
 app.listen(process.env.PORT, () => console.log("app is running"));
