@@ -45,6 +45,11 @@ app.get("/getAll", (request, response) => {
 
 //Update
 
+app.patch('/update', (request, response)=>{
+  const {id, name} = request.body;
+  const db = dbService.getDbServiceInstance();
+})
+
 // Delete
 app.delete('/delete/:id', (request, response)=>{
   const {id} = request.params;
