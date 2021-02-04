@@ -91,20 +91,20 @@ class DbService {
     }
   }
 
-  async updateRowById(id, name){
+  async updateNameInput(id, name){
     try {
       id = parseInt(id, 10);
       const response = await new Promise((resolve, reject)=>{
-        const query = "UPDATE FROM names SET Name = ? WHERE id = ?";
+        const query = "UPDATE names SET Name = ? WHERE id = ?";
 
         connection.query(query, [name, id], (err, result)=>{
           if(err) reject(new Error(err.message));
-          resolve(result.affectedRows);
+          resolve(result);
         })
       })
-      return response === 1 ? true: false;
+      console.log("Respuesta: " + response);
     }catch(error){
-      console.log(error);
+      console.log("error dbService: " + error);
       return false;
     }
   }
